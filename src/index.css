@@ -1,0 +1,18 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Montserrat', sans-serif;
+}
+
+body{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    font-size: 120%;
+    background-image: url(https://source.unsplash.com/1600x900/?cloud);
+    background-position: bottom;
+    background-size: cover;
+}
