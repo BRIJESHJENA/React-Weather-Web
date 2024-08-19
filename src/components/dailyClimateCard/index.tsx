@@ -1,7 +1,8 @@
-import { Box, Divider, Typography } from "@mui/material";
+import { Box, Divider, Paper, Typography } from "@mui/material";
 import React from "react";
 import { useSelector } from "react-redux";
 import { iconUrlFromCode } from "../../common/api/index.tsx";
+import "../dailyClimateCard/index.css";
 
 function Dailyclimatecard({ title }) {
   let forcast: {
@@ -98,13 +99,17 @@ function Dailyclimatecard({ title }) {
 
   return (
     forcast && (
-      <Box style={{ margin: "10px" }}>
+      <Box>
         <Typography variant="h5">{title}</Typography>
         <Divider style={{ margin: "20px" }} />
         <Box
+          className="climateScroll"
           display="flex"
-          justifyContent="space-evenly"
-          style={{ maxWidth: "80vw", overflowX: "auto" }}
+          // justifyContent="space-evenly"
+          style={{
+            maxWidth: "90vw",
+            overflowX: "auto",
+          }}
         >
           {forcast?.map(
             (
@@ -119,22 +124,31 @@ function Dailyclimatecard({ title }) {
               },
               index
             ) => (
-              <Box
-                display="flex"
-                flexDirection="column"
-                justifyContent="center"
-                alignItems="center"
-                key={index}
+              <Paper
+                style={{
+                  backgroundColor: "#FFFFFFAB",
+                  borderRadius: "20px",
+                  padding: "10px",
+                  margin: "10px",
+                }}
               >
-                <Typography variant="caption">
-                  {convertingDate(e?.dt)}
-                </Typography>
-                <img
-                  src={iconUrlFromCode(e.weather[0].icon)}
-                  alt={e.weather[0].main}
-                />
-                <Typography variant="caption">{check(e?.temp)}</Typography>
-              </Box>
+                <Box
+                  display="flex"
+                  flexDirection="column"
+                  justifyContent="center"
+                  alignItems="center"
+                  key={index}
+                >
+                  <Typography variant="caption">
+                    {convertingDate(e?.dt)}
+                  </Typography>
+                  <img
+                    src={iconUrlFromCode(e.weather[0].icon)}
+                    alt={e.weather[0].main}
+                  />
+                  <Typography variant="caption">{check(e?.temp)}</Typography>
+                </Box>
+              </Paper>
             )
           )}
         </Box>

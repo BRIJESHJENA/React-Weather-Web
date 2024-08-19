@@ -1,12 +1,13 @@
 import React from "react";
 import SearchLocation from "./components/search/index.tsx";
 import Climatecard from "./components/climatecards/index.tsx";
-import Dailyclimatecard from "./components/dailyClimateCard.tsx/index.tsx";
+import Dailyclimatecard from "./components/dailyClimateCard/index.tsx";
 import { useSelector } from "react-redux";
 import clear from "./common/images/clear.png";
 import cloudy from "./common/images/cloudy.png";
 import storm from "./common/images/storm.png";
 import { Box, Button, Tooltip, Typography } from "@mui/material";
+import "./components/dailyClimateCard/index.css";
 
 export default function App() {
   const errorMsg: any = useSelector((state: any) => state?.error.climateVal);
@@ -50,10 +51,12 @@ export default function App() {
       <Box
         className="app"
         style={{
-          width: "80vw",
-          maxHeight: "80vh",
+          width: "90vw",
+          height: "90vh",
+          maxHeight: "90vh",
           overflow: "auto",
           backgroundImage: bgColor,
+          padding: "10px",
         }}
       >
         <SearchLocation />
