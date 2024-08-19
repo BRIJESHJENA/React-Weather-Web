@@ -5,11 +5,10 @@ import { Box, Grid, Typography } from "@mui/material";
 
 function Climatecard() {
   const weather: any = useSelector((state: any) => state?.climate.climateVal);
-  // console.log(weather);
 
   return (
     <Box>
-      {weather?.main ? (
+      {weather?.main && (
         <Box>
           <Grid container className="location-box">
             <Grid
@@ -125,8 +124,6 @@ function Climatecard() {
             </Grid>
           </Grid>
         </Box>
-      ) : (
-        "Not Available"
       )}
     </Box>
   );

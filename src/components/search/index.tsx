@@ -5,6 +5,7 @@ import { useDispatch } from "react-redux";
 import {
   addClimate,
   dailyClimate,
+  errorMessage,
   hourlyClimate,
 } from "../climatecards/clicmatecardslice.tsx";
 import { getSearchData } from "../../common/api/index.tsx";
@@ -16,21 +17,22 @@ function SearchLocation() {
 
   const commonCode = async () => {
     const data = await getSearchData({ infoType: "weather" }, location);
-    if (data) {
+
+    if (data.cod !== 200) {
+      dispatch(errorMessage(data.message));
+    } else {
       dispatch(addClimate(data));
-    }
 
-    const { lat, lon } = data?.coord;
+      const { lat, lon } = data?.coord;
 
-    const dailyData = await getSearchData({
-      infoType: "onecall",
-      lat,
-      lon,
-      exclude: "current,minutely,alerts",
-      units: "metric",
-    });
+      const dailyData = await getSearchData({
+        infoType: "onecall",
+        lat,
+        lon,
+        exclude: "current,minutely,alerts",
+        units: "metric",
+      });
 
-    if (dailyData) {
       dispatch(dailyClimate(dailyData.daily));
       const currentTimestamp = Math.floor(Date.now() / 1000);
 

@@ -4,6 +4,7 @@ const intialeState = {
   climate: {},
   dailyClimate: {},
   hourlyClimate: {},
+  error: {}
 };
 
 const climatecard = createSlice({
@@ -31,9 +32,17 @@ const climatecard = createSlice({
       };
       state.hourlyClimate = hourlyClimate;
     },
+    errorMessage: (state: any, action: any) => {
+      const error = {
+        id: nanoid(),
+        climateVal: action.payload,
+      };
+      state.error = error;
+    },
   },
 });
 
-export const { addClimate, dailyClimate, hourlyClimate } = climatecard.actions;
+export const { addClimate, dailyClimate, hourlyClimate, errorMessage } =
+  climatecard.actions;
 
 export default climatecard.reducer;

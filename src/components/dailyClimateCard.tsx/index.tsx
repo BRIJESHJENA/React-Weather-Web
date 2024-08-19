@@ -90,7 +90,6 @@ function Dailyclimatecard({ title }) {
     let result: string;
     if (title === "Hourly Card") {
       result = `${val}°c`;
-      console.log(typeof val, val, title);
     } else {
       result = `${val.min}°c-${val.max}°c`;
     }
