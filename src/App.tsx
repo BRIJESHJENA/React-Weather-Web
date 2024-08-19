@@ -64,7 +64,7 @@ export default function App() {
             <Dailyclimatecard title="Hourly Card" />
           </>
         ) : (
-          <Typography>{errorMsg}</Typography>
+          <Typography color="red">{errorMsg}</Typography>
         )}
       </Box>
       <Box display="flex" justifyContent="flex-end">
