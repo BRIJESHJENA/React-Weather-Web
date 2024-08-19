@@ -21,6 +21,7 @@ function SearchLocation() {
     if (data.cod !== 200) {
       dispatch(errorMessage(data.message));
     } else {
+      dispatch(errorMessage(data.message));
       dispatch(addClimate(data));
 
       const { lat, lon } = data?.coord;

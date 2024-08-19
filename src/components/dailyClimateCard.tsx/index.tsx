@@ -107,20 +107,24 @@ function Dailyclimatecard({ title }) {
           style={{ maxWidth: "80vw", overflowX: "auto" }}
         >
           {forcast?.map(
-            (e: {
-              dt: any;
-              temp: any;
-              weather: {
-                icon(icon: any): string | undefined;
-                main: string | undefined;
-                id: any;
-              }[];
-            }) => (
+            (
+              e: {
+                dt: any;
+                temp: any;
+                weather: {
+                  icon(icon: any): string | undefined;
+                  main: string | undefined;
+                  id: any;
+                }[];
+              },
+              index
+            ) => (
               <Box
                 display="flex"
                 flexDirection="column"
                 justifyContent="center"
                 alignItems="center"
+                key={index}
               >
                 <Typography variant="caption">
                   {convertingDate(e?.dt)}
