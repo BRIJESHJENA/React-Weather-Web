@@ -30,7 +30,7 @@ export default function App() {
 
   const weather: any = useSelector((state: any) => state?.climate.climateVal);
 
-  // const bgColor: any = setBackgroundBasedOnClimate(weather?.weather[0]?.main);
+  const bgColor: any = setBackgroundBasedOnClimate(weather?.weather[0]?.main);
 
   const Bio = {
     name: "BRIJESH JENA",
@@ -55,7 +55,7 @@ export default function App() {
           height: "90vh",
           maxHeight: "90vh",
           overflow: "auto",
-          backgroundImage: "#000",
+          backgroundImage: bgColor,
           padding: "10px",
         }}
       >
