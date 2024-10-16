@@ -30,7 +30,7 @@ function SearchLocation() {
 
       const { lat, lon } = data?.coord;
 
-      const dailyData = await getSearchData({
+      const dailyData1 = await getSearchData({
         infoType: "onecall",
         lat,
         lon,
@@ -38,10 +38,12 @@ function SearchLocation() {
         units: "metric",
       });
 
-      dispatch(dailyClimate(dailyData.daily));
+      const dailyData = await getSearchData({ infoType: "forecast" }, location);
+
+      dispatch(dailyClimate(dailyData1.daily));
       const currentTimestamp = Math.floor(Date.now() / 1000);
 
-      const filteredArr = dailyData.hourly.filter(
+      const filteredArr = dailyData.list?.filter(
         (item: { dt: number }) => item.dt > currentTimestamp
       );
 

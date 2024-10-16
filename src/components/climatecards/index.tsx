@@ -9,9 +9,9 @@ function Climatecard() {
   return (
     <Box>
       {weather?.main && (
-        <Box style={{margin:"10px"}}>
+        <Box style={{ margin: "10px" }}>
           <Grid container className="location-box">
-            {/* <Grid
+            <Grid
               item
               xs={12}
               md={12}
@@ -23,23 +23,17 @@ function Climatecard() {
               <Typography variant="h4">
                 {weather.name}, {weather.sys.country}
               </Typography>
-            </Grid> */}
-            <Grid
-              item
-              xs={12}
-              md={12}
-              lg={12}
-              className="weather"
-              display="flex"
-              justifyContent="center"
-            >
-              {weather.weather[0].main}
             </Grid>
           </Grid>
-          <Grid container display="flex" alignItems="center">
+          <Grid
+            container
+            display="flex"
+            alignItems="center"
+            justifyContent="center"
+          >
             <Grid
               item
-              xs={12}
+              xs={6}
               md={4}
               lg={4}
               display="flex"
@@ -52,7 +46,18 @@ function Climatecard() {
             </Grid>
             <Grid
               item
-              xs={12}
+              xs={6}
+              md={12}
+              lg={12}
+              className="weather"
+              display="flex"
+              justifyContent="center"
+            >
+              {weather.weather[0].main}
+            </Grid>
+            <Grid
+              item
+              xs={6}
               md={4}
               lg={4}
               display="flex"
@@ -62,7 +67,7 @@ function Climatecard() {
             </Grid>
             <Grid
               item
-              xs={12}
+              xs={6}
               md={4}
               lg={4}
               display="flex"

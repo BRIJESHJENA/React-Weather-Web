@@ -8,6 +8,7 @@ function Dailyclimatecard({ title }) {
   let forcast: {
     dt: Date;
     temp: number;
+    main: { temp: any };
     weather: {
       icon(icon: any): string | undefined;
       main: string | undefined;
@@ -105,7 +106,6 @@ function Dailyclimatecard({ title }) {
         <Box
           className="climateScroll"
           display="flex"
-          // justifyContent="space-evenly"
           style={{
             maxWidth: "90vw",
             overflowX: "auto",
@@ -116,6 +116,7 @@ function Dailyclimatecard({ title }) {
               e: {
                 dt: any;
                 temp: any;
+                main: { temp: any };
                 weather: {
                   icon(icon: any): string | undefined;
                   main: string | undefined;
@@ -146,7 +147,9 @@ function Dailyclimatecard({ title }) {
                     src={iconUrlFromCode(e.weather[0].icon)}
                     alt={e.weather[0].main}
                   />
-                  <Typography variant="caption">{check(e?.temp)}</Typography>
+                  <Typography variant="caption">
+                    {check(e?.main?.temp)}
+                  </Typography>
                 </Box>
               </Paper>
             )
