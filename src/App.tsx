@@ -6,6 +6,7 @@ import { useSelector } from "react-redux";
 import clear from "./common/images/clear.png";
 import cloudy from "./common/images/cloudy.png";
 import storm from "./common/images/storm.png";
+import mine from "./common/images/mine-avatar.png";
 import { Box, Button, Tooltip, Typography } from "@mui/material";
 import "./components/dailyClimateCard/index.css";
 
@@ -44,6 +45,7 @@ export default function App() {
     resume:
       "https://drive.google.com/file/d/1MGuXtftYjH1HDFg4r5wxdZuXZBsTp9u-/view?usp=drive_link",
     linkedin: "https://www.linkedin.com/in/brijesh-jena-071ab6215/",
+    portfolio: "https://brijeshjena.github.io/Portfolio/",
   };
 
   return (
@@ -156,6 +158,17 @@ export default function App() {
                 </clipPath>
               </defs>
             </svg>
+          </Button>
+        </Tooltip>
+        <Tooltip title="Portfolio" placement="bottom">
+          <Button
+            href={Bio.portfolio}
+            size="small"
+            variant="text"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <img src={mine} alt="portfolio" style={{ width: "50px" }} />
           </Button>
         </Tooltip>
       </Box>
