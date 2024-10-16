@@ -24,7 +24,7 @@ function Dailyclimatecard({ title }) {
     (state: any) => state?.hourlyClimate.climateVal
   );
 
-  if (title === "Daily Card") {
+  if (title === "Daily") {
     forcast = dailyClimate;
   } else {
     forcast = hourlyClimate;
@@ -63,7 +63,7 @@ function Dailyclimatecard({ title }) {
     let result: any;
     if (date) {
       if (typeof date === "number") {
-        if (title === "Daily Card") {
+        if (title === "Daily") {
           const date1 = new Date(date * 1000);
           // const date = new Date(timestamp * 1000);
 
@@ -90,7 +90,7 @@ function Dailyclimatecard({ title }) {
 
   const check = (val: { min: any; max: any }) => {
     let result: string;
-    if (title === "Hourly Card") {
+    if (title === "Hourly") {
       result = `${val}°c`;
     } else {
       result = `${val.min}°c-${val.max}°c`;

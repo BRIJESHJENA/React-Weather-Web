@@ -63,8 +63,8 @@ export default function App() {
         {!errorMsg ? (
           <>
             <Climatecard />
-            <Dailyclimatecard title="Daily Card" />
-            <Dailyclimatecard title="Hourly Card" />
+            <Dailyclimatecard title="Daily" />
+            <Dailyclimatecard title="Hourly" />
           </>
         ) : (
           <Typography color="red">{errorMsg}</Typography>
