@@ -10,21 +10,6 @@ function Climatecard() {
     <Box>
       {weather?.main && (
         <Box style={{ margin: "10px" }}>
-          <Grid container className="location-box">
-            <Grid
-              item
-              xs={12}
-              md={12}
-              lg={12}
-              className="location"
-              display="flex"
-              justifyContent="center"
-            >
-              <Typography variant="h4">
-                {weather.name}, {weather.sys.country}
-              </Typography>
-            </Grid>
-          </Grid>
           <Grid
             container
             display="flex"
